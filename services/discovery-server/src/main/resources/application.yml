@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: discovery-service
+  config:
+    # tells the application to import configuration properties from the Spring Cloud Config Server at http://localhost:9091
+    import: optional:configserver:http://localhost:9091
+
+
+
+
+

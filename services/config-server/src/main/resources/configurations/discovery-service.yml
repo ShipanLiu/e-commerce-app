@@ -1,0 +1,10 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true # show the register the discovery-service into eureka and show in the Spring Eureka Web Client
+    fetchRegistry: false # we fetch from the config-server
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+server:
+  port: 9092

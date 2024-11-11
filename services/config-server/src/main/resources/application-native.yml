@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: config-server
+  #  Spring Cloud Config
+  cloud:
+    config:
+      server:
+        native: # you are telling the Spring Cloud Config server to use the native mode for serving configuration properties, he native mode means the config server will load configuration files from the local filesystem or classpath, rather than an external Git repository or other source
+          search-locations: classpath:/configurations #resources/configurations folder
+
+server:
+  port: 9091
+
+
+
