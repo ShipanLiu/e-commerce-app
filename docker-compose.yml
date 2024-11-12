@@ -1,19 +1,13 @@
 services:
   mysql:
-    image: mysql:8.0.34
+    image: mysql:8.0.33
     container_name: e_commerce_mysql_container
     environment:
-      MYSQL_ROOT_PASSWORD: 19980223           # Set root password
-      MYSQL_USER: shipan              # Creates a new user
-      MYSQL_PASSWORD: 19980223           # Sets password for the new user
-      MYSQL_ALLOW_EMPTY_PASSWORD: "no"        # Disallows empty passwords
-      MYSQL_RANDOM_ROOT_PASSWORD: "no"        # Ensures the root password is set (no random password)
-      MYSQL_INITDB_SKIP_TZINFO: "no"          # Allows time zone tables to be populated
+      MYSQL_ROOT_PASSWORD: 19980223
     volumes:
-      - mysql:/var/lib/mysql # Different volume for data
-      - /Users/shipanliu/tmp/tmp/a.cnf:/etc/mysql/my.cnf # Always teh same config file
+      - '/Users/shipanliu/tmp/tmp/a.cnf:/etc/mysql/my.cnf' # Always teh same config file
     ports:
-      - "3309:3306"
+      - 3309:3306
     networks:
       - microservices-net
     restart: unless-stopped
