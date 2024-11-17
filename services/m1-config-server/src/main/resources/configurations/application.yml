@@ -1,0 +1,42 @@
+# application.yml in the Config Server will act as a shared base configuration.
+# All other service-specific configuration files (e.g., customer-service.yml, discovery-service.yml, product-service.yml) will inherit settings from application.yml by default.
+
+
+#    --------------Config for eureka service-----------
+
+
+# Define a custom port property
+custom:
+  eureka:
+    port: 9092
+# Act as a eureka-client and connect to eureka(discovery)server:
+
+# Act as a eureka(discovery)server for other ms, this eureka discovery server call be shown in a webclient when accessing the "http://127.0.0.1:9092/"
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${custom.eureka.port}/eureka/  # Corrected port to 9092
+  register-with-eureka: true
+  fetch-registry: true  # e.g. customer-service retrieves the list of services registered with Eureka, including order-service.
+
+
+
+#     ---------------Spring Cloud---------------
+spring:
+  cloud:
+    config:
+      override-system-properities: false  #For example, if you have an environment variable DATABASE_URL set on the system and the Config Server also has a DATABASE_URL property, the system’s value will be used, not the one from the Config Server.
+
+
+
+
+
+
+
+
+
+
+
+

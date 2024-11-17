@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      username: shipan
+      password: 19980223
+      host: localhost
+      port: 27017
+      database: cdb_customer
+      authentication-database: admin

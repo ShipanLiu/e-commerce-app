@@ -1,0 +1,4 @@
+eureka:
+  client:
+    register-with-eureka: false # do not register it self
+    fetchRegistry: false  # Eureka server itself does not need to fetch a registry of other service
